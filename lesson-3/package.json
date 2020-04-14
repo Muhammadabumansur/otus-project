@@ -1,0 +1,65 @@
+{
+  "name": "basic-template",
+  "version": "1.0.0",
+  "description": "Basic template with webpack, babel, typescript, jest and git hooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix ./",
+    "build": "webpack",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "test:loki": "npm run build-storybook && npx loki --requireReference --reactUri file:./storybook-static",
+    "check": "npm run lint && npm test && npm run test:loki",
+    "loki:update": "npm run build-storybook && npx loki update --requireReference --reactUri file:./storybook-static"
+  },
+  "author": "Magomed Kandaev",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addon-storysource": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/react": "^5.3.18",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "babel-loader": "^8.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "jest": "^25.2.7",
+    "loki": "^0.20.3",
+    "prettier": "^2.0.4",
+    "react-test-renderer": "^16.13.1",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
+  }
+}
