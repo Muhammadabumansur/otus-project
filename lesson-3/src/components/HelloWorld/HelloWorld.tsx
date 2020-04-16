@@ -1,9 +1,9 @@
 import React from "react";
 
-type Props = {
+type HelloWorldProps = {
   user: string;
 };
 
-export default function HelloWorld({ user }: Props) {
+export default function HelloWorld({ user }: HelloWorldProps) {
   return <div>Hello World, {user}</div>;
 }
